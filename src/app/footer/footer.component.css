@@ -1,0 +1,34 @@
+footer{
+    /* grid-column: span 3; */
+  
+    background: #11111190;
+  
+    /* display: flex; */
+  
+    
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  
+    border-radius: .5em;
+  
+
+  }
+  footer img{
+    border: 0px solid;
+    padding-right: 20px;
+    margin: .5em;
+    /* width:2.5em; */
+    height: 2em;
+    /* display:flex; */
+  
+    /* column-span: all; */
+  
+    
+    
+  }
+  
+  footer img:hover{
+  transform: scale(1.1);
+  }
+  
