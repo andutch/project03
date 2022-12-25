@@ -1,17 +1,21 @@
 
 header{
-    /* background: #11111190; */
+    
+    background: hsl(219 29% 14% );
+    padding: 1em;
+    border-radius:1em 1em 0em 0em;
     /* background: #1a1a1a; */
     /* grid-column: span 4; */
- background-color: #11111190;
-    /* margin-top: 1em;
+    /* background-color: #11111190; */
+    /* padding: 1em;
+    margin-top: 1em;
   
     align-content: center;
     align-items: center;
     text-align: center;
   
   
-    border-radius: .5em; */
-  
+    border-radius: .5em;
+   */
    
   }

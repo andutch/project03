@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { WarehouseViewComponent } from './warehouse-view/warehouse-view.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { DetailViewComponent } from './detail-view/detail-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WarehouseViewComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DetailViewComponent
   ],
   imports: [
     BrowserModule,
