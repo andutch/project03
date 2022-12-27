@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Warehouse } from '../models/warehouse';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +7,10 @@ import { Injectable } from '@angular/core';
 export class InternalServiceService {
 
   constructor() { }
+
+warehouseList:Warehouse[]=[];
+selectedWareHouse: Warehouse= new Warehouse('','','','','','',[]);
+
+
+
 }

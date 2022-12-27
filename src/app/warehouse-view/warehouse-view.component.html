@@ -31,20 +31,53 @@
     <section>
         <div class="rt-container">
               <div class="col-rt-12">
-                  <div class="Scriptcontent">
-                  
+                  <div class="Scriptcontent">         
         
     <div class="distribution-map">
         <img src="../../assets/images/map.png" alt="" />
+
+
+        <ng-container *ngFor="let warehouse of warehouseList">
+
+            <button 
+            (click)="showDetailView(warehouse.warehouseId)"
+            class="map-point"
+            
+            style="{{warehouse.grid}}">
+         
+          
+           
+
+
+            <div class="content">
+                <div class="centered-y">
+                    <h2>{{warehouse.warehouseId}}</h2>
+                    <p>{{warehouse.address}}</p>
+                </div>
+            </div>
+        </button>
+        </ng-container>
+
+        <ng-container *ngIf="warehouseList.length<1">
+        <button (click)="populateWarehouseExamples()">Poupulate Examples</button>
+    </ng-container>
        
-        <button class="map-point" style="top:15%;left:35%">
+     <!-- <button class="map-point" style="top:15%;left:35%">
             <div class="content">
                 <div class="centered-y">
                     <h2>Warehouse 1</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolor totam possimus quam ex soluta.</p>
                 </div>
             </div>
-        </button>
+        </button> -->
+
+
+
+
+
+
+  <!-- 
+
         <button class="map-point" style="top:35%;left:50%">
             <div class="content">
                 <div class="centered-y">
@@ -84,7 +117,7 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
             </div>
-        </button>
+        </button> -->
     </div>
 
                
