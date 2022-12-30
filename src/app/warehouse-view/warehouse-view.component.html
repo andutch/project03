@@ -1,6 +1,5 @@
 <body>
-		
-    <!-- <div class="ScriptTop">
+  <!-- <div class="ScriptTop">
         <div class="rt-container">
             <div class="col-rt-4" id="float-right">
     
@@ -14,8 +13,8 @@
             </div>
         </div>
     </div> -->
-    
-    <!-- <header class="ScriptHeader">
+
+  <!-- <header class="ScriptHeader">
         <div class="rt-container">
             <div class="col-rt-12">
                 <div class="rt-heading">
@@ -25,44 +24,38 @@
             </div>
         </div>
     </header> -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <section>
-        <div class="rt-container">
-              <div class="col-rt-12">
-                  <div class="Scriptcontent">         
-        
-    <div class="distribution-map">
-        <img src="../../assets/images/map.png" alt="" />
+  <!--  -->
+  <!--  -->
+  <!--  -->
+  <section>
+    <div class="rt-container">
+      <div class="col-rt-12">
+        <div class="Scriptcontent">
+          <div class="distribution-map">
+            <img src="../../assets/images/map.png" alt="" />
 
-
-        <ng-container *ngFor="let warehouse of warehouseList">
-
-            <button 
-            (click)="showDetailView(warehouse.warehouseId)"
-            class="map-point"
-            
-            style="{{warehouse.grid}}">
-         
-          
-           
-
-
-            <div class="content">
-                <div class="centered-y">
-                    <h2>{{warehouse.warehouseId}}</h2>
-                    <p>{{warehouse.address}}</p>
+            <ng-container *ngFor="let warehouse of warehouseList">
+              <button
+                (click)="showDetailView(warehouse.warehouseId)"
+                class="map-point"
+                style= "{{ warehouse.grid }}"
+              >
+                <div class="content">
+                  <div class="centered-y">
+                    <h2>{{ warehouse.warehouseId }}</h2>
+                    <p>{{ warehouse.address }}</p>
+                  </div>
                 </div>
-            </div>
-        </button>
-        </ng-container>
+              </button>
+            </ng-container>
 
-        <ng-container *ngIf="warehouseList.length<1">
-        <button (click)="populateWarehouseExamples()">Poupulate Examples</button>
-    </ng-container>
-       
-     <!-- <button class="map-point" style="top:15%;left:35%">
+            <ng-container *ngIf="warehouseList.length < 1">
+              <button (click)="populateWarehouseExamples()">
+                Poupulate Examples
+              </button>
+            </ng-container>
+
+            <!-- <button class="map-point" style="top:15%;left:35%">
             <div class="content">
                 <div class="centered-y">
                     <h2>Warehouse 1</h2>
@@ -71,12 +64,7 @@
             </div>
         </button> -->
 
-
-
-
-
-
-  <!-- 
+            <!-- 
 
         <button class="map-point" style="top:35%;left:50%">
             <div class="content">
@@ -118,12 +106,9 @@
                 </div>
             </div>
         </button> -->
-    </div>
-
-               
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-
-        </body>
+      </div>
+    </div>
+  </section>
+</body>

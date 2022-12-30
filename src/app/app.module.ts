@@ -11,6 +11,9 @@ import { InventoryViewComponent } from './inventory-view/inventory-view.componen
 import { ModifyInventoryItemComponent } from './modify-inventory-item/modify-inventory-item.component';
 import { ModifyWarehouseComponent } from './modify-warehouse/modify-warehouse.component';
 import { InventoryDetailViewComponent } from './inventory-detail-view/inventory-detail-view.component';
+import { ProductService } from './services/product.service'; //
+
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -26,9 +29,10 @@ import { InventoryDetailViewComponent } from './inventory-detail-view/inventory-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule //import
   ],
-  providers: [],
+  providers: [ProductService], //allows injection
   bootstrap: [AppComponent]
 })
 export class AppModule { }
