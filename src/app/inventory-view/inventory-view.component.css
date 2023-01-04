@@ -48,7 +48,7 @@
   h3,
   p {
     font-weight: var(--fw-7);
-    pointer-events: none;
+    /* pointer-events: none; */
  
   }
   
@@ -56,7 +56,7 @@
   .flex {
     /* display: flex; */
     gap: var(--gap, 1rem);
-    pointer-events: none;
+    /* pointer-events: none; */
   }
   
 

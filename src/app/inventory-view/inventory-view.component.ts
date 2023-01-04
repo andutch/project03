@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class InventoryViewComponent implements OnInit{
 
   products: Product[]=[];
-  currentWarehouseId: number=1;
+  currentWarehouseId: number=3;
 
   constructor(private productService:ProductService,
               private route: ActivatedRoute){}
@@ -27,23 +27,26 @@ export class InventoryViewComponent implements OnInit{
 
 
   listProducts() {
-
+    
     const hasWarehouseId: boolean=this.route.snapshot.paramMap.has('id')
 
 
     if (hasWarehouseId){
       //get id by number
       this.currentWarehouseId=+this.route.snapshot.paramMap.get('id')!;//! non-null assertion operator
+      console.log("id ="+this.currentWarehouseId )
     }
-    // else{
-    //   //set default
-    //   this.currentWarehouseId=1;////////////////uncomment, set route
-    // }
+    else{
+      //set default
+      console.log("warehouse no id" )
+      this.currentWarehouseId=2;////////////////uncomment, set route
+    }
 
 
     this.productService.getProductList(this.currentWarehouseId).subscribe(
       data=>{
         this.products=data; //assigns results to product array
+        console.log("subsripption in inventory view")
       }
     )
   }

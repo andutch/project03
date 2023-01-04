@@ -1,4 +1,6 @@
 <body>
+
+
   <!-- <div class="ScriptTop">
         <div class="rt-container">
             <div class="col-rt-4" id="float-right">
@@ -34,81 +36,46 @@
           <div class="distribution-map">
             <img src="../../assets/images/map.png" alt="" />
 
-            <ng-container *ngFor="let warehouse of warehouseList">
+            <ng-container *ngFor="let warehouse of productWarehouses">
+           
               <button
-                (click)="showDetailView(warehouse.warehouseId)"
+                (click)="showDetailView(warehouse.warehouseName)"
                 class="map-point"
-                style= "{{ warehouse.grid }}"
+                style= '{{ warehouse.warehouseGrid }}'
               >
                 <div class="content">
                   <div class="centered-y">
-                    <h2>{{ warehouse.warehouseId }}</h2>
-                    <p>{{ warehouse.address }}</p>
+                    <h2>{{ warehouse.warehouseName }}</h2>
+                    <!-- <a [routerLink]= "[{outlets:{'aux1':['inventory-detail-view']}}]"></a> -->
+                    <p a routerLink="/warehouse/{{warehouse.id }}" 
+                    routerLinkActive="active-link">
+                    
+                    <!-- <a [routerLink]= "[{outlets:{'aux1':['inventory-detail-view']}}]" >  -->
+                      
+                      <!-- <a routerLink= "inventory-view"> -->
+                        
+                        View Inventory</p>
                   </div>
                 </div>
               </button>
             </ng-container>
-
+<!-- 
             <ng-container *ngIf="warehouseList.length < 1">
               <button (click)="populateWarehouseExamples()">
                 Poupulate Examples
               </button>
-            </ng-container>
+            </ng-container>    -->
 
-            <!-- <button class="map-point" style="top:15%;left:35%">
-            <div class="content">
-                <div class="centered-y">
-                    <h2>Warehouse 1</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolor totam possimus quam ex soluta.</p>
-                </div>
-            </div>
-        </button> -->
+<!--  -->
 
-            <!-- 
 
-        <button class="map-point" style="top:35%;left:50%">
-            <div class="content">
-                <div class="centered-y">
-                    <h2>Warehouse 2</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </button>
-        <button class="map-point" style="top:76%;left:82.5%">
-            <div class="content">
-                <div class="centered-y">
-                    <h2>Warehouse 3</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </button>
-        <button class="map-point" style="top:45%;left:16%">
-            <div class="content">
-                <div class="centered-y">
-                    <h2>Warehouse 4</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </button>
-        <button class="map-point" style="top:60%;left:53%">
-            <div class="content">
-                <div class="centered-y">
-                    <h2>Warehouse 5</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </button>
-        <button class="map-point" style="top:25%;left:70%">
-            <div class="content">
-                <div class="centered-y">
-                    <h2>Warehouse 6</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </button> -->
+
           </div>
         </div>
       </div>
     </div>
   </section>
 </body>
+
+
+

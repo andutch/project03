@@ -1,23 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InternalServiceService } from '../services/internal-service.service';
 import { Router } from '@angular/router';
 import { WAREHOUSES } from '../models/example-warehouse';
 import { DetailViewComponent } from '../detail-view/detail-view.component';
+import { ProductWarehouse } from '../common/product-warehouse';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-warehouse-view',
   templateUrl: './warehouse-view.component.html',
   styleUrls: ['./warehouse-view.component.css']
 })
-export class WarehouseViewComponent {
 
 
-  constructor(private internalService: InternalServiceService, private router: Router){
+
+export class WarehouseViewComponent implements OnInit{
+
+
+  productWarehouses: ProductWarehouse[]=[];
+
+  constructor(private internalService: InternalServiceService, private router: Router, private productService: ProductService){
 
   };
 
+  ngOnInit(): void {
+    this.listProductWarehouses();
+    }
+
   warehouseList=this.internalService.warehouseList;
 
+  listProductWarehouses() {
+    this.productService.getProductWarehouses().subscribe(
+      data=>{
+        console.log('Product Warehouses='+JSON.stringify(data));
+        this.productWarehouses=data;
+      }
+    );
+  }
 
   populateWarehouseExamples():void{
     for(let warehouse in WAREHOUSES ){

@@ -44,6 +44,7 @@ const routes: Routes=[
     InventoryDetailViewComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule //import
