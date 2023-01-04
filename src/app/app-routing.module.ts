@@ -19,6 +19,14 @@ const routes: Routes = [
     path: 'inventory-view',
     component:InventoryViewComponent
   },
+ 
+
+  {path: 'warehouse/:id', component: InventoryViewComponent},
+  {path: 'warehouse', component: InventoryViewComponent},
+  {path: 'products', component: InventoryDetailViewComponent},
+  // {path:'', redirectTo: '/products', pathMatch: 'full'},
+  // {path: '**', redirectTo: '/products', pathMatch: 'full'}
+
   {
     path: 'inventory-detail-view',
     component:InventoryDetailViewComponent,

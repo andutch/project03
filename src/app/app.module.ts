@@ -18,16 +18,16 @@ import {HttpClientModule} from '@angular/common/http'
 
 
 
-const routes: Routes=[
+// const routes: Routes=[
   
 
-  {path: 'warehouse/:id', component: InventoryViewComponent},
-  {path: 'warehouse', component: InventoryViewComponent},
-  {path: 'products', component: InventoryDetailViewComponent},
-  {path:'', redirectTo: '/products', pathMatch: 'full'},
-  {path: '**', redirectTo: '/products', pathMatch: 'full'},
+//   {path: 'warehouse/:id', component: InventoryViewComponent},
+//   {path: 'warehouse', component: InventoryViewComponent},
+//   {path: 'products', component: InventoryDetailViewComponent},
+//   {path:'', redirectTo: '/products', pathMatch: 'full'},
+//   {path: '**', redirectTo: '/products', pathMatch: 'full'},
 
-];
+// ];
 
 
 
@@ -44,7 +44,7 @@ const routes: Routes=[
     InventoryDetailViewComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    // RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule //import

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-inventory-view',
@@ -16,7 +16,7 @@ export class InventoryViewComponent implements OnInit{
   currentWarehouseId: number=3;
 
   constructor(private productService:ProductService,
-              private route: ActivatedRoute){}
+              private route: ActivatedRoute, private router:Router){}
 
   ngOnInit():void{
     this.route.paramMap.subscribe(()=>{
@@ -51,4 +51,7 @@ export class InventoryViewComponent implements OnInit{
     )
   }
 
+  openLink() {
+    this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');
+}
 }
