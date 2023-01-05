@@ -8,7 +8,8 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
 const routes: Routes = [
   {
     path: '',
-    component:WarehouseViewComponent //default page load router(empty string path)
+    component:WarehouseViewComponent, //default page load router(empty string path)
+    // outlet: 'aux1'
   },
   {
     path: 'warehouse-view',
@@ -18,6 +19,14 @@ const routes: Routes = [
     path: 'inventory-view',
     component:InventoryViewComponent
   },
+ 
+
+  {path: 'warehouse/:id', component: InventoryViewComponent},
+  {path: 'warehouse', component: InventoryViewComponent},
+  {path: 'products', component: InventoryDetailViewComponent},
+  // {path:'', redirectTo: '/products', pathMatch: 'full'},
+  // {path: '**', redirectTo: '/products', pathMatch: 'full'}
+
   {
     path: 'inventory-detail-view',
     component:InventoryDetailViewComponent,
@@ -25,6 +34,11 @@ const routes: Routes = [
   },
   {
     path: 'warehouse-detail-view',
+    component:DetailViewComponent,
+    outlet: 'aux1'
+  },
+  {
+    path: '',
     component:DetailViewComponent,
     outlet: 'aux1'
   }

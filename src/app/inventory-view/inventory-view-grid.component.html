@@ -1,0 +1,35 @@
+
+
+<body>
+    <main class="task-grid">
+
+
+    <ng-container *ngFor="let tempProduct of products">
+
+        <article class="task box-type-3" style="margin:.5rem;">
+
+         <div class="flex" >
+             <div>
+            <img src="{{tempProduct.imageUrl}}">
+
+             </div>
+        <div>
+            <h1>{{tempProduct.name}}</h1>
+            <div class="price">{{tempProduct.unitPrice| currency:'USD'}}</div>
+
+            <h2 class="name">Part Number: {{tempProduct.sku}}</h2>
+
+            <!-- <a [routerLink]= "[{outlets:{'aux1':['inventory-detail-view']}}]"><h3>InventoryDetailView</h3></a> -->
+
+
+            <!-- <a (click)="openLink()"><h3>InventoryDetailView</h3></a> -->
+            <button style="height:30px;width:100px;background-color: grey;" (click)="setSelectedItem(tempProduct.sku)"><strong>View item</strong></button>
+
+          
+        </div>
+        </div>
+        
+        </article>
+</ng-container>
+    </main>
+</body>
