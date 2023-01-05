@@ -48,7 +48,7 @@
   h3,
   p {
     font-weight: var(--fw-7);
-    /* pointer-events: none; */
+    pointer-events: none;
  
   }
   

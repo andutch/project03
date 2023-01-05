@@ -38,8 +38,15 @@
 
             <ng-container *ngFor="let warehouse of productWarehouses">
            
-              <button
+              <!-- <button
                 (click)="showDetailView(warehouse.warehouseName)"
+                class="map-point"
+             
+                style= '{{ warehouse.warehouseGrid }}'
+
+              > -->
+              <button (click)="setSelectedWarehouse(warehouse.id)"
+                
                 class="map-point"
              
                 style= '{{ warehouse.warehouseGrid }}'
@@ -51,6 +58,7 @@
                 <div class="content">
                   <div class="centered-y">
                     <h2>{{ warehouse.warehouseName }}</h2>
+                    
                     <!-- <a [routerLink]= "[{outlets:{'aux1':['inventory-detail-view']}}]"></a> -->
                     <p a routerLink="/warehouse/{{warehouse.id }}" 
                     routerLinkActive="active-link">

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../models/item';
-import { Warehouse } from '../models/warehouse';
+// import { Warehouse } from '../models/warehouse';
 import { Product } from '../common/product';
+import { ProductWarehouse } from '../common/product-warehouse';
 import { InventoryDetailViewComponent } from '../inventory-detail-view/inventory-detail-view.component';
 import { BehaviorSubject } from 'rxjs';
 
@@ -16,20 +17,26 @@ export class InternalServiceService {
 
   selectedItem: any;
   public productSubject: BehaviorSubject<any>=new BehaviorSubject<any>({});//////////////////////
+  public wareHouseSubject: BehaviorSubject<any>=new BehaviorSubject<any>({});//////////////////////
 
   constructor() { 
 this.productSubject.next(this.selectedItem)/////////////////
+this.wareHouseSubject.next(this.selectedWareHouse)/////////////////
 
   }
 
 
-warehouseList:Warehouse[]=[];
+// warehouseList:Warehouse[]=[];
 
-selectedWareHouse: Warehouse= new Warehouse('','','','','','',[]);
+selectedWareHouse:any;
 
 
 
-setSelectedWareHouse(){
+setSelectedWareHouse(selectedWareHouse:ProductWarehouse){
+  this.selectedWareHouse=selectedWareHouse;
+console.log('set selected to'+JSON.stringify(selectedWareHouse))
+
+this.wareHouseSubject.next(this.selectedWareHouse)
 }
 
 
