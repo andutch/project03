@@ -21,3 +21,7 @@ header{
   }
 
   a, a:visited { color: grey;}
+
+  a:link {
+    text-decoration: none;
+  }
