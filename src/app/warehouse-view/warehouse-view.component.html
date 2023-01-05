@@ -41,8 +41,13 @@
               <button
                 (click)="showDetailView(warehouse.warehouseName)"
                 class="map-point"
+             
                 style= '{{ warehouse.warehouseGrid }}'
+
               >
+
+              <!-- try ngStyle -->
+
                 <div class="content">
                   <div class="centered-y">
                     <h2>{{ warehouse.warehouseName }}</h2>
@@ -79,3 +84,4 @@
 
 
 
+<!-- style= '{{ warehouse.warehouseGrid }}' -->

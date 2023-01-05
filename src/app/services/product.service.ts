@@ -18,6 +18,8 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
+
+
   getProductList(theWarehouseId: number): Observable<Product[]>{
 console.log("get prods in service")
     const searchUrl=`${this.baseUrl}/search/findByWarehouseId?id=${theWarehouseId}`;

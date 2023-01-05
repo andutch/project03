@@ -3,28 +3,25 @@
     <div class="cards">
         <div class="card card1">
             <div class="container">
-                <img src="../../assets/images/fire.png" alt="las vegas">
+                <img src="{{selectedItem.imageUrl}}">
+                <!-- <img src="{{tempProduct.imageUrl}}"> -->
             </div>
             <div class="details">
-                <h3>Red Lambo</h3>
+                <h3>{{selectedItem.name}}</h3>
                 <p>
                    Qty: 100
                 </p>
                 <p>
-                    Price: $250,000
+                    Price: {{selectedItem.unitPrice}}
                  </p>
 
                  <p>
-                    Part-Number: AB12-CD34
+                    SKU:{{selectedItem.sku}}
                  </p>
 
 
                 <p>
-                    Details: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nemo perferendis neque, in consequuntur doloremque! Sit optio ea delectus deserunt, eum cumque ipsum veritatis adipisci corrupti tempore sed architecto non?
-                    Details: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nemo perferendis neque, in consequuntur doloremque! Sit optio ea delectus deserunt, eum cumque ipsum veritatis adipisci corrupti tempore sed architecto non?
-                    Details: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nemo perferendis neque, in consequuntur doloremque! Sit optio ea delectus deserunt, eum cumque ipsum veritatis adipisci corrupti tempore sed architecto non?
-                    Details: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nemo perferendis neque, in consequuntur doloremque! Sit optio ea delectus deserunt, eum cumque ipsum veritatis adipisci corrupti tempore sed architecto non?
-                    Details: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nemo perferendis neque, in consequuntur doloremque! Sit optio ea delectus deserunt, eum cumque ipsum veritatis adipisci corrupti tempore sed architecto non?
+                   {{selectedItem.description}}
                 </p>
             </div>
         </div>

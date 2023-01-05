@@ -51,8 +51,7 @@ export class WarehouseViewComponent implements OnInit{
       if(id===this.warehouseList[warehouse].warehouseId){
         console.log("found ID"+id)
       this.internalService.selectedWareHouse=this.warehouseList[warehouse];
-        // this.taskList.push(this.completedTaskList[task]);
-        // this.completedTaskList.splice(task,1);}
+  
         console.log(this.internalService.selectedWareHouse.warehouseId)
     }
   }
@@ -61,4 +60,14 @@ export class WarehouseViewComponent implements OnInit{
     
 
 }
+
+
+
+// openLink() {
+//   this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');
+//   // this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:warehouse-detail-view)');
+//   console.log('change page1')
+//   // this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');
+//   // console.log('change page2')
+// }
 }
