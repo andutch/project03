@@ -60,6 +60,15 @@ updateSelected(updateID:number){
 //
 }
 
+createProduct(){
+  this.productService.createProduct();
+/// need referesh page
+// this.internalService.productSubject.next;////////////not working?
+ this.advanceSelectedItem()
+
+//
+}
+
 // updateSelected(deleteID:number){
 //   this.productService.deleteProduct(deleteID);
 // /// need referesh page

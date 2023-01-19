@@ -56,6 +56,22 @@ console.log("get prods in service")
         "name": "Crash Course in Python"}).subscribe((data)=>{
           console.log("success update");})
       }
+
+      createProduct(){
+
+        console.log("create prod ")
+        const createProductUrl=`${this.baseUrl}/`;
+        
+        this.httpClient.post(createProductUrl, { "id":101,
+        "sku": "blah",
+        "name": "Crash Course in Python",
+        "active":true,
+        
+            "warehouse": {
+                "warehouse": "http://localhost:8080/api/product-warehouse/1"
+            }}).subscribe((data)=>{
+          console.log("success update");})
+      }
   
 
 
