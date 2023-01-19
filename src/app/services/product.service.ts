@@ -34,6 +34,29 @@ console.log("get prods in service")
       map(response=> response._embedded.productWarehouse)
     );
   }
+///////////////
+  deleteProduct(productID: number){
+    console.log("delete prod " +productID)
+        const deleteUrl=`${this.baseUrl}/${productID}`;
+        console.log("delete url " +deleteUrl)
+    
+        this.httpClient.delete(deleteUrl).subscribe((data)=>{
+          console.log("success delete");})
+
+        /////////////////////// need refresh observable
+      }
+
+      updateProduct(productID: number){
+
+        console.log("update prod " +productID)
+        const updateUrl=`${this.baseUrl}/${productID}`;
+        console.log("update url " +updateUrl)
+    
+        this.httpClient.put(updateUrl, {"id":`${productID}`, "sku": "blah",
+        "name": "Crash Course in Python"}).subscribe((data)=>{
+          console.log("success update");})
+      }
+  
 
 
 }

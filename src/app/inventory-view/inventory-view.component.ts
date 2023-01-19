@@ -27,7 +27,7 @@ export class InventoryViewComponent implements OnInit{
     this.route.paramMap.subscribe(()=>{
       this.listProducts();
     
-    })
+    }) //commented out Jan 18th, not needed?
     this.listProducts();
   }
 
@@ -35,6 +35,8 @@ export class InventoryViewComponent implements OnInit{
   listProducts() {
     
     const hasWarehouseId: boolean=this.route.snapshot.paramMap.has('id')
+
+    
 
 
     if (hasWarehouseId){
@@ -54,9 +56,9 @@ export class InventoryViewComponent implements OnInit{
     this.productService.getProductList(this.currentWarehouseId).subscribe(
       data=>{
         this.products=data; //assigns results to product array
-///////////////////////////////////sets a default product as first one
+
         //this.internalService.selectedItem=this.products[0];//////////
-        this.internalService.productSubject.next(this.products[0]);//////////
+        this.internalService.productSubject.next(this.products[0]);//sets a default product as first one
 
         this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');
 /////////////////////////////////
@@ -73,7 +75,7 @@ export class InventoryViewComponent implements OnInit{
     // console.log('change page2')
 }
 
-setSelectedItem(sku: string){
+public setSelectedItem(sku: string){
 
   for(let product in this.products){
       if(sku==this.products[product].sku){
@@ -81,7 +83,6 @@ setSelectedItem(sku: string){
       }else{}
 
   }
-
   // this.internalService.setSelectedItem(sku);
 }
 

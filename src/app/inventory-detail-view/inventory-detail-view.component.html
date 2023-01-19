@@ -9,10 +9,10 @@
             <div class="details">
                 <h3>{{selectedItem.name}}</h3>
                 <p>
-                   Qty: 100
+                   Qty: {{selectedItem.unitsInStock}}
                 </p>
                 <p>
-                    Price: {{selectedItem.unitPrice}}
+                    Price: {{selectedItem.unitPrice| currency:'USD'}}
                  </p>
 
                  <p>
@@ -23,6 +23,16 @@
                 <p>
                    {{selectedItem.description}}
                 </p>
+
+
+                <button style="height:30px;width:100px;background-color: grey; border: 1px;" (click)="deleteSelected(selectedItem.id)"><strong>delete item</strong></button>
+                <br>
+
+                <button style="height:30px;width:100px;background-color: grey; border: 1px;" (click)="updateSelected(selectedItem.id)"><strong>update item</strong></button>
+
+
+
+
             </div>
         </div>
         <!-- <div class="card card2">

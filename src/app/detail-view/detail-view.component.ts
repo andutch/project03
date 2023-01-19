@@ -13,18 +13,19 @@ import { ProductWarehouse } from '../common/product-warehouse';
 export class DetailViewComponent {
 
   constructor(private internalService: InternalServiceService, private router: Router){
-
     this.internalService.wareHouseSubject.subscribe(value=>{this.selectedWarehouse=value;});
     this.getSelected();
   };
   
   ngOnInit():void{
-  
-    this.getSelected();
+    this.internalService.wareHouseSubject.subscribe(value=>{this.selectedWarehouse=value;});//jan18th not needed
+    this.getSelected();//jan18th not needed
     }
   
 // wareHouse=this.internalService.selectedWareHouse
-selectedWarehouse:any;
+selectedWarehouse:any=1;
+
+
 
 
 // updateWarehouse(wareHouse:ProductWarehouse){
@@ -33,6 +34,8 @@ selectedWarehouse:any;
 
 getSelected(){
   // this.selectedItem=this.internalService.selectedItem;
+
+  //need a default case?
   console.log('get selected in detail view!!')
   this.internalService.wareHouseSubject.subscribe(value=>{this.selectedWarehouse=value;});
   }

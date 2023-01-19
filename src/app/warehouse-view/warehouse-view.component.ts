@@ -38,6 +38,7 @@ export class WarehouseViewComponent implements OnInit{
         this.internalService.wareHouseSubject.next(this.productWarehouses[0]);
       }
     );
+    // this.internalService.wareHouseSubject.next(this.productWarehouses[0]);
   }
 
   // populateWarehouseExamples():void{
@@ -70,7 +71,6 @@ setSelectedWarehouse(id:number){
       this.internalService.setSelectedWareHouse(this.productWarehouses[warehouse]);
       console.log("set wh "+id)
     }else{}
-
 }
 
 }

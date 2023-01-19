@@ -5,6 +5,7 @@ import { Product } from '../common/product';
 import { ProductWarehouse } from '../common/product-warehouse';
 import { InventoryDetailViewComponent } from '../inventory-detail-view/inventory-detail-view.component';
 import { BehaviorSubject } from 'rxjs';
+import { InventoryViewComponent } from '../inventory-view/inventory-view.component';
 
 
 // const subject = new BehaviorSubject(_selectedItem:any);
@@ -45,6 +46,20 @@ this.selectedItem=selectedItem;
 console.log('set selected to'+JSON.stringify(selectedItem))
 
 this.productSubject.next(this.selectedItem)
+// this.wareHouseSubject.next(this.selectedWareHouse)
+
 
 }
+/////////////////
+advanceSelectedItem(){
+ 
+  console.log('advance selected to')
+  
+  
+
+
+  
+  }
+
+
 }
