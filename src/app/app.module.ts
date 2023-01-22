@@ -9,12 +9,13 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DetailViewComponent } from './detail-view/detail-view.component';
 import { InventoryViewComponent } from './inventory-view/inventory-view.component';
-import { ModifyInventoryItemComponent } from './modify-inventory-item/modify-inventory-item.component';
-import { ModifyWarehouseComponent } from './modify-warehouse/modify-warehouse.component';
+// import { ModifyInventoryItemComponent } from './modify-inventory-item/modify-inventory-item.component';
 import { InventoryDetailViewComponent } from './inventory-detail-view/inventory-detail-view.component';
 import { ProductService } from './services/product.service'; //
 
 import {HttpClientModule} from '@angular/common/http'
+
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -39,15 +40,15 @@ import {HttpClientModule} from '@angular/common/http'
     FooterComponent,
     DetailViewComponent,
     InventoryViewComponent,
-    ModifyInventoryItemComponent,
-    ModifyWarehouseComponent,
+    // ModifyInventoryItemComponent,
     InventoryDetailViewComponent
   ],
   imports: [
     // RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule //import
+    HttpClientModule, //import
+    FormsModule
   ],
   providers: [ProductService], //allows injection
   bootstrap: [AppComponent]

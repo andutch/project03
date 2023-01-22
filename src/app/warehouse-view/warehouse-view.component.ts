@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InternalServiceService } from '../services/internal-service.service';
 import { Router } from '@angular/router';
-import { WAREHOUSES } from '../models/example-warehouse';
+
 import { DetailViewComponent } from '../detail-view/detail-view.component';
 import { ProductWarehouse } from '../common/product-warehouse';
 import { ProductService } from '../services/product.service';

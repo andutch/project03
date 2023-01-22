@@ -14,14 +14,13 @@ export class ProductService {
   private warehouseUrl = 'http://localhost:8080/api/product-warehouse';
 
   //http://localhost:8080/api/products?size=100 return 100 instead of default 20 for 
-  //spring rest, quick fix
+  //spring rest
 
   constructor(private httpClient: HttpClient) { }
 
 
 
   getProductList(theWarehouseId: number): Observable<Product[]>{
-console.log("get prods in service")
     const searchUrl=`${this.baseUrl}/search/findByWarehouseId?id=${theWarehouseId}`;
 
     return this.httpClient.get<GetResponse>(searchUrl).pipe(
@@ -35,25 +34,34 @@ console.log("get prods in service")
     );
   }
 ///////////////
-  deleteProduct(productID: number){
+  async deleteProduct(productID: number){
     console.log("delete prod " +productID)
         const deleteUrl=`${this.baseUrl}/${productID}`;
         console.log("delete url " +deleteUrl)
     
-        this.httpClient.delete(deleteUrl).subscribe((data)=>{
+       await this.httpClient.delete(deleteUrl).subscribe((data)=>{
           console.log("success delete");})
 
         /////////////////////// need refresh observable
       }
 
-      updateProduct(productID: number){
+      // updateProduct(productID: number){
 
-        console.log("update prod " +productID)
-        const updateUrl=`${this.baseUrl}/${productID}`;
+      //   console.log("update prod " +productID)
+      //   const updateUrl=`${this.baseUrl}/${productID}`;
+      //   console.log("update url " +updateUrl)
+    
+      // this.httpClient.put(updateUrl, {"id":`${productID}`, "sku": "blah",
+      //   "name": "Crash Course in Python"}).subscribe((data)=>{
+      //     console.log("success update");})
+      // }
+      updateProduct(selectedItem: Product){
+
+        console.log("update prod " +selectedItem)
+        const updateUrl=`${this.baseUrl}/${selectedItem.id}`;
         console.log("update url " +updateUrl)
     
-        this.httpClient.put(updateUrl, {"id":`${productID}`, "sku": "blah",
-        "name": "Crash Course in Python"}).subscribe((data)=>{
+      this.httpClient.put(updateUrl, selectedItem).subscribe((data)=>{
           console.log("success update");})
       }
 

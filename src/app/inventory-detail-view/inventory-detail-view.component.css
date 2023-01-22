@@ -7,20 +7,15 @@ body{
     background-color: #151320;
     height: 25em;
     display: flex;
-    /* place-items: center center; */
+    place-items: center center;
     font-family: 'Poppins',sans-serif;
-    /* justify-content: center; */
-}
-p{
-
-    align-content: left;
-    text-align: left;
+    justify-content: center;
 }
 .cards{
     display: flex;
     /* grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); */
-    padding: 1em;
-    grid-gap: 1em;
+    /* padding: 1em;
+    grid-gap: 1em; */
     /* float: left; */
   
 }
@@ -29,24 +24,26 @@ p{
     background: hsl(219 29% 14%/.8);
     border-radius: 2em;
     box-shadow: 0 0 30px rgba(0,0,0,0.18);
-    /* width:100%; */
+    /* max-width:70em;
+    max-height:20em; */
+    width: 100%
     /* float: left; */
 }
 .container{
-    position: relative;
+    /* position: relative; */
     /* clip-path: polygon(0 0,100% 0, 100% 65%, 0 100%); */
     float: left;
 }
 img{
     /* width: 100%; */
-    height: 10em;
+    height: 15em;
+    width: 20em;
     display: block;
-    margin: 1em;
-    border-radius: 1.5em 0 0 0;
-    float:initial;
+    border-radius: 1.5em;
+    /* float:initial; */
     /* height: 300px; */
 }
-.container:after{
+/* .container:after{
     content: "";
     height: 100%;
     width: 100%;
@@ -55,28 +52,8 @@ img{
     left: 0;
     border-radius: 1.5em 1.5em 0 0;
     opacity: 0.7;
-}
-/* .card1>.container:after{
-    background-image: linear-gradient(
-        135deg,
-        #0100ec,
-        #fb36f4
-    );
 } */
-.card2>.container:after{
-    background-image: linear-gradient(
-        135deg,
-        #2bdce3,
-        #42ffdb
-    );
-}
-.card3>.container:after{
-    background-image: linear-gradient(
-        135deg,
-        #ffab1d,
-        #f8501c
-    );
-}
+
 .details{
     padding: 2em 1em;
 }

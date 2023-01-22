@@ -1,13 +1,16 @@
 
 <body>
+    
     <div class="cards">
-        <div class="card card1">
+        <div class="card">
             <div class="container">
+        
                 <img src="{{selectedItem.imageUrl}}">
-                <!-- <img src="{{tempProduct.imageUrl}}"> -->
             </div>
-            <div class="details">
-                <h3>{{selectedItem.name}}</h3>
+                <!-- <img src="{{tempProduct.imageUrl}}"> -->
+         
+            
+                <!-- <h3>{{selectedItem.name}}</h3>
                 <p>
                    Qty: {{selectedItem.unitsInStock}}
                 </p>
@@ -22,39 +25,82 @@
 
                 <p>
                    {{selectedItem.description}}
-                </p>
+                </p> -->
+                <div class="details">
 
+                <form #modifyTaskForm>
+                
+                  <p>  <input [(ngModel)]="selectedItem.name"
+    
+                       type="text"
+                       id="taskTitle"
+                       name="taskTitle"
+                       placeholder="Leave Blank For No Title Edits..."
+                       ></p>
 
-                <button style="height:30px;width:100px;background-color: grey; border: 1px;" (click)="deleteSelected(selectedItem.id)"><strong>delete item</strong></button>
-                <br>
+                       <p>  <input [(ngModel)]="selectedItem.name"
+    
+                        type="text"
+                        id="taskTitle"
+                        name="taskTitle"
+                        placeholder="Leave Blank For No Title Edits..."
+                        ></p>
+
+                        <p>  <input [(ngModel)]="selectedItem.name"
+    
+                            type="text"
+                            id="taskTitle"
+                            name="taskTitle"
+                            placeholder="Leave Blank For No Title Edits..."
+                            ></p>
+                          
+                            <div>
+                                <button style="height:30px;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="deleteSelected(selectedItem.id);"><strong>delete item</strong></button>
+                            <br>
+                
+                
+                                <button style="height:30px;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="updateSelected(selectedItem.id)"><strong>update item</strong></button>
+                             
+                            <br>
+                                <button style="height:30px;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="createProduct()"><strong>create item</strong></button>
+                            </div>
+    
+    
+                       <!-- <div id="taskContent"> -->
+                      <p> 
+            
+                    <textarea   [(ngModel)]="selectedItem.description" 
+                    
+                                  name="taskContent" 
+                                  id="taskContent" 
+                            
+                                  style="width:500px;">
+                        </textarea></p> 
+               
+        
+                    <!-- </div> -->
+                    </form>
+                
+                
+                </div>
+            </div>
+                
+              
+                   
+                    
+       
+
+            
+            </div>
+            <!-- <div>
+            <button style="height:30px;width:100px;background-color: grey; border: 1px;" (click)="deleteSelected(selectedItem.id);"><strong>delete item</strong></button>
+            <br>
+
 
                 <button style="height:30px;width:100px;background-color: grey; border: 1px;" (click)="updateSelected(selectedItem.id)"><strong>update item</strong></button>
-                <br>
-
+             
+            <br>
                 <button style="height:30px;width:100px;background-color: grey; border: 1px;" (click)="createProduct()"><strong>create item</strong></button>
-
-
-
-
             </div>
-        </div>
-        <!-- <div class="card card2">
-            <div class="container">
-                <img src="../../assets/images/newyork.jpg" >
-            </div>
-            <div class="details">
-                <h3>New York</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dignissimos, minus aperiam adipisci exercitationem.</p>
-            </div>
-        </div>
-        <div class="card card3">
-            <div class="container">
-                <img src="../../assets/images/singapore.jpg" alt="Singapore">
-            </div>
-            <div class="details">
-                <h3>Singapore</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dignissimos, minus aperiam adipisci exercitationem.</p>
-            </div>
-        </div> -->
-    </div>
+    -->
 </body>
