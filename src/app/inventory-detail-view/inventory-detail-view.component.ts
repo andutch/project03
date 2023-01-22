@@ -114,7 +114,7 @@ updateSelected(updateID:number){
 ///////////////////////////////////////------------------->
 // const currentWarehouseId= this.internalService.selectedWareHouse;
 
-this.productService.getProductList(this.internalService.selectedWareHouse).subscribe(
+this.productService.getProductList(this.internalService.selectedWareHouseId).subscribe(//
   data=>{
     this.products=data; //assigns results to product array
   }
@@ -137,7 +137,7 @@ for(let product in this.products){
 }
 
 createProduct(){
-  this.productService.createProduct();
+  this.productService.createProduct(this.internalService.selectedWareHouseId);
 /// need referesh page
 // this.internalService.productSubject.next;////////////not working?
  this.advanceSelectedItem()

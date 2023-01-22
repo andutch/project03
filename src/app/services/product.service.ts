@@ -67,7 +67,7 @@ export class ProductService {
           console.log("success update");})
       }
 
-     async createProduct(){
+     async createProduct(warehouseID:number){
 
         console.log("create prod ")
         const createProductUrl=`${this.baseUrl}/`;
@@ -88,12 +88,15 @@ export class ProductService {
       //  alert(this.testVar.size());
         
         this.httpClient.post(createProductUrl, { 
-        "sku": "blah",
-        "name": "Crash Course in Python",
+        "sku": "blank",
+        "name": "blank",
         "active":true,
+        "unitPrice": 0.00,
+        "description":'',
+        "imageUrl":'assets/images/products/generic-0000.png',
         
             "warehouse": {
-                "warehouse": "http://localhost:8080/api/product-warehouse/1"
+                "warehouse": `http://localhost:8080/api/product-warehouse/${warehouseID}`
             }}).subscribe((data)=>{
           console.log("success update");})
       }

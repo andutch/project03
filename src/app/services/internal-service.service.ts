@@ -27,8 +27,8 @@ this.wareHouseSubject.next(this.selectedWareHouse)/////////////////
 
   }
 
-selectedWareHouse:any;
-selectedWareHouseId:any=1;
+selectedWareHouse:ProductWarehouse=new ProductWarehouse(1,'','');
+selectedWareHouseId:number=1;
 
 productWarehouses: ProductWarehouse[]=[];
 
