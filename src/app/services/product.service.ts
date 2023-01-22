@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from '../common/product';
 import { ProductWarehouse } from '../common/product-warehouse';
+import { InternalServiceService } from './internal-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { ProductWarehouse } from '../common/product-warehouse';
 export class ProductService {
 
   private baseUrl = 'http://localhost:8080/api/products';
+  private baseUrlMax = 'http://localhost:8080/api/products?size=100';
   private warehouseUrl = 'http://localhost:8080/api/product-warehouse';
 
   //http://localhost:8080/api/products?size=100 return 100 instead of default 20 for 
@@ -18,7 +20,7 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-
+  testVar:Product[]=[];
 
   getProductList(theWarehouseId: number): Observable<Product[]>{
     const searchUrl=`${this.baseUrl}/search/findByWarehouseId?id=${theWarehouseId}`;
@@ -65,12 +67,27 @@ export class ProductService {
           console.log("success update");})
       }
 
-      createProduct(){
+     async createProduct(){
 
         console.log("create prod ")
         const createProductUrl=`${this.baseUrl}/`;
+
+
         
-        this.httpClient.post(createProductUrl, { "id":101,
+        // this.internalService.selectedWareHouse;//selected warehousefor id link
+        //need to get total number of prod
+
+
+    await  this.httpClient.get<GetResponse>(this.baseUrlMax).pipe(
+          map(response=> response._embedded.products)
+        ).subscribe(data=>{this.testVar=data;});
+
+
+        console.log("test var"+this.testVar);
+        console.log("test var size"+this.testVar.length);
+      //  alert(this.testVar.size());
+        
+        this.httpClient.post(createProductUrl, { 
         "sku": "blah",
         "name": "Crash Course in Python",
         "active":true,
@@ -81,6 +98,13 @@ export class ProductService {
           console.log("success update");})
       }
   
+
+      // this.productService.getProductList(this.currentWarehouseId).subscribe(
+      //   data=>{
+      //     this.products=data;
+
+
+
 
 
 }
