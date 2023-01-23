@@ -25,15 +25,29 @@ export class InventoryViewComponent implements OnInit{
               private route: ActivatedRoute, private router:Router, private internalService:InternalServiceService){
 
                 //added 21 Jan// not working
-     this.internalService.wareHouseSubject.subscribe(value=>{this.currentWarehouse=value;}); //changed from currentWhid
-    //  this.listProducts();
+    //  this.internalService.wareHouseSubject.subscribe(value=>{this.currentWarehouse=value;}); //changed from currentWhid
+  
     this.currentWarehouseId=this.internalService.selectedWareHouseId;
+
+
+  this.products=this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
+                
+   this.internalService.listSubject.subscribe(data=>{this.products=data;});//new
+  //  this.internalService.listSubject.subscribe();//new
+
     this.listProducts();
+
+ 
+    
     
               }
 
   ngOnInit():void{
   this.currentWarehouseId=this.internalService.selectedWareHouseId;
+  
+  // this.products= this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
+  this.internalService.listSubject.subscribe(data=>{this.products=data;});
+  this.listProducts();
 
   this.interval = setInterval(() => { 
   this.listProductsInterval(); 
@@ -45,17 +59,19 @@ export class InventoryViewComponent implements OnInit{
 
     this.currentWarehouseId=this.internalService.selectedWareHouseId;
 
+    this.internalService.listSubject.subscribe(data=>{this.products=data;});//
+    this.products=this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
 
     this.productService.getProductList(this.currentWarehouseId).subscribe(
       data=>{
         this.products=data; //assigns results to product array
 
-        //this.internalService.selectedItem=this.products[0];//
+      
         this.internalService.productSubject.next(this.products[0]);//sets a default product as first one
 
-        this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');
-/////////////////////////////////
-        console.log("subsripption in inventory view")
+        this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');//auxilary router redirect
+
+    //     console.log("subsripption in inventory view")
       }
       
     )
@@ -63,49 +79,26 @@ export class InventoryViewComponent implements OnInit{
   }
   listProductsInterval() {
     
-    // const hasWarehouseId: boolean=this.route.snapshot.paramMap.has('id')
-    this.currentWarehouseId=this.internalService.selectedWareHouseId;
+
+    // this.currentWarehouseId=this.internalService.selectedWareHouseId;
   
-    // if (hasWarehouseId){
-
-    // console.log("this current id before if statement"+this.currentWarehouseId);
-    //   this.currentWarehouseId=+this.route.snapshot.paramMap.get('id')!;//! non-null assertion operator
-    //   this.internalService.selectedWareHouseId=this.currentWarehouseId;
-    //   console.log("this current id in if statement"+this.currentWarehouseId);
-
-    // //   this.internalService.selectedWareHouse=+this.route.snapshot.paramMap.get('id')!;//! non-null assertion operator added han19th not sure if working
-    // // //   console.log("id of listing wh="+this.currentWarehouseId )
-    
-    // }
-    // else{
-    //   //set default
-    //   console.log("warehouse no id" )
-    //   this.currentWarehouseId=2;////////////////uncomment, set route
-    // }
+    // this.products=this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
 
 
     this.productService.getProductList(this.currentWarehouseId).subscribe(
       data=>{
         this.products=data; //assigns results to product array
 
-      //  this.internalService.selectedItem=this.products[0];//
-
       console.log(this.internalService.productSubject.value)
-      // if (this.internalService.productSubject.value!=null){
-      //  this.internalService.productSubject.next(this.products[0]);//sets a default product as first one//!!for interval timer
-      // }
-
- 
+    
       }
     )
     
   }
   openLink() {
     this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');
-    // this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:warehouse-detail-view)');
-    console.log('change page1')
-    // this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');
-   
+
+    console.log('change page1') 
 }
 
 public setSelectedItem(sku: string){
@@ -115,7 +108,7 @@ public setSelectedItem(sku: string){
         this.internalService.setSelectedItem(this.products[product]);
       }else{}
   }
-  // this.internalService.setSelectedItem(sku);
+ 
 }
 
 }

@@ -17,13 +17,15 @@ import { ProductService } from './product.service';
 })
 export class InternalServiceService {
 
-  selectedItem: any;
-  public productSubject: BehaviorSubject<any>=new BehaviorSubject<any>({});//////////////////////
-  public wareHouseSubject: BehaviorSubject<any>=new BehaviorSubject<any>({});//////////////////////
+
+  public productSubject: BehaviorSubject<any>=new BehaviorSubject<any>({});
+  public wareHouseSubject: BehaviorSubject<any>=new BehaviorSubject<any>({});
+  public listSubject: BehaviorSubject<any>=new BehaviorSubject<any>({});
 
   constructor(private productService: ProductService) { 
-this.productSubject.next(this.selectedItem)/////////////////
-this.wareHouseSubject.next(this.selectedWareHouse)/////////////////
+this.productSubject.next(this.selectedItem)
+this.wareHouseSubject.next(this.selectedWareHouse)
+this.listSubject.next(this.productList)
 
   }
 
@@ -31,6 +33,9 @@ selectedWareHouse:ProductWarehouse=new ProductWarehouse(1,'','');
 selectedWareHouseId:number=1;
 
 productWarehouses: ProductWarehouse[]=[];
+productList:Product[]=[];
+selectedItem: any;
+// products: Product[]=[];
 
 setSelectedWareHouse(selectedWareHouse:ProductWarehouse){
   this.selectedWareHouse=selectedWareHouse;
@@ -66,7 +71,6 @@ advanceSelectedItem(){
   }
 
 
-
   setZeroth(){
 
     let products:any;
@@ -75,5 +79,19 @@ advanceSelectedItem(){
 console.count("product0= "+products[0])
     this.productSubject.next(products[0]);
   }
-  
+
+  fetchProducts(currentWarehouseId:number):Product[]{
+
+    this.productService.getProductList(currentWarehouseId).subscribe(
+      data=>{
+        this.productList=data; //assigns results to product array
+      })
+
+      this.listSubject.next(this.productList);
+      //  this.products;
+
+      console.log("fetched list"+this.productList)
+      return this.productList;
+  }
+
 }

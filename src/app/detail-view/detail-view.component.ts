@@ -18,24 +18,15 @@ export class DetailViewComponent {
   };
   
   ngOnInit():void{
-    this.internalService.wareHouseSubject.subscribe(value=>{this.selectedWarehouse=value;});//jan18th not needed
-    this.getSelected();//jan18th not needed
+   
     }
   
-// wareHouse=this.internalService.selectedWareHouse
+
 selectedWarehouse:any=1;
 
 
-
-
-// updateWarehouse(wareHouse:ProductWarehouse){
-// this.wareHouse=wareHouse;
-// }
-
 getSelected(){
-  // this.selectedItem=this.internalService.selectedItem;
-
-  //need a default case?
+ 
   console.log('get selected in detail view!!')
   this.internalService.wareHouseSubject.subscribe(value=>{this.selectedWarehouse=value;});
   }

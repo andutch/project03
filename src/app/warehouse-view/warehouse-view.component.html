@@ -1,34 +1,6 @@
 <body>
 
 
-  <!-- <div class="ScriptTop">
-        <div class="rt-container">
-            <div class="col-rt-4" id="float-right">
-    
-                
-                
-            </div>
-            <div class="col-rt-2">
-                <ul>
-                    <li><a href="https://codeconvey.com/interactive-world-map-css">Back to Tutorial</a></li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
-
-  <!-- <header class="ScriptHeader">
-        <div class="rt-container">
-            <div class="col-rt-12">
-                <div class="rt-heading">
-                    <h1>Pure CSS Interactive Map Example</h1>
-                    <p>A pure CSS world map with interactive hotspots.</p>
-                </div>
-            </div>
-        </div>
-    </header> -->
-  <!--  -->
-  <!--  -->
-  <!--  -->
   <section>
     <div class="rt-container">
       <div class="col-rt-12">
@@ -38,50 +10,25 @@
 
             <ng-container *ngFor="let warehouse of productWarehouses">
            
-              <!-- <button
-                (click)="showDetailView(warehouse.warehouseName)"
-                class="map-point"
-             
-                style= '{{ warehouse.warehouseGrid }}'
-
-              > -->
               <button (click)="setSelectedWarehouse(warehouse.id)"
                 
                 class="map-point"
              
-                style= '{{ warehouse.warehouseGrid }}'
+                style= '{{ warehouse.warehouseGrid }}'>
 
-              >
-
-              <!-- try ngStyle -->
 
                 <div class="content">
                   <div class="centered-y">
-                    <h2>{{ warehouse.warehouseName }}</h2>
-                    
-                    <!-- <a [routerLink]= "[{outlets:{'aux1':['inventory-detail-view']}}]"></a> -->
+                    <h2>{{ warehouse.warehouseName }}</h2>       
+            
                     <p a routerLink="/warehouse/{{warehouse.id }}" 
                     routerLinkActive="active-link">
                     
-                    <!-- <a [routerLink]= "[{outlets:{'aux1':['inventory-detail-view']}}]" >  -->
-                      
-                      <!-- <a routerLink= "inventory-view"> -->
-                        
-                        <strong>View Inventory</strong></p>
+                        <strong (click)="setSelectedWarehouse(warehouse.id)">View Inventory</strong></p>
                   </div>
                 </div>
               </button>
             </ng-container>
-<!-- 
-            <ng-container *ngIf="warehouseList.length < 1">
-              <button (click)="populateWarehouseExamples()">
-                Poupulate Examples
-              </button>
-            </ng-container>    -->
-
-<!--  -->
-
-
 
           </div>
         </div>
@@ -90,6 +37,3 @@
   </section>
 </body>
 
-
-
-<!-- style= '{{ warehouse.warehouseGrid }}' -->

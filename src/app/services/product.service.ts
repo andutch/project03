@@ -12,11 +12,9 @@ import { InternalServiceService } from './internal-service.service';
 export class ProductService {
 
   private baseUrl = 'http://localhost:8080/api/products';
-  private baseUrlMax = 'http://localhost:8080/api/products?size=100';
+  private baseUrlMax = 'http://localhost:8080/api/products?size=100';//return 100 instead of default 20 for spring 
   private warehouseUrl = 'http://localhost:8080/api/product-warehouse';
 
-  //http://localhost:8080/api/products?size=100 return 100 instead of default 20 for 
-  //spring rest
 
   constructor(private httpClient: HttpClient) { }
 
@@ -47,16 +45,7 @@ export class ProductService {
         /////////////////////// need refresh observable
       }
 
-      // updateProduct(productID: number){
-
-      //   console.log("update prod " +productID)
-      //   const updateUrl=`${this.baseUrl}/${productID}`;
-      //   console.log("update url " +updateUrl)
-    
-      // this.httpClient.put(updateUrl, {"id":`${productID}`, "sku": "blah",
-      //   "name": "Crash Course in Python"}).subscribe((data)=>{
-      //     console.log("success update");})
-      // }
+  
       updateProduct(selectedItem: Product){
 
         console.log("update prod " +selectedItem)
@@ -73,19 +62,12 @@ export class ProductService {
         const createProductUrl=`${this.baseUrl}/`;
 
 
-        
-        // this.internalService.selectedWareHouse;//selected warehousefor id link
-        //need to get total number of prod
-
-
     await  this.httpClient.get<GetResponse>(this.baseUrlMax).pipe(
           map(response=> response._embedded.products)
         ).subscribe(data=>{this.testVar=data;});
 
-
         console.log("test var"+this.testVar);
         console.log("test var size"+this.testVar.length);
-      //  alert(this.testVar.size());
         
         this.httpClient.post(createProductUrl, { 
         "sku": "blank",
@@ -94,22 +76,12 @@ export class ProductService {
         "unitPrice": 0.00,
         "description":'',
         "imageUrl":'assets/images/products/generic-0000.png',
-        
             "warehouse": {
                 "warehouse": `http://localhost:8080/api/product-warehouse/${warehouseID}`
             }}).subscribe((data)=>{
           console.log("success update");})
       }
   
-
-      // this.productService.getProductList(this.currentWarehouseId).subscribe(
-      //   data=>{
-      //     this.products=data;
-
-
-
-
-
 }
 
 interface GetResponse { //video 58
