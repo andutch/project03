@@ -52,11 +52,12 @@ this.internalService.productSubject.subscribe(value=>{this.selectedItem=value;})
 }
 
 async deleteSelected(deleteID:number){
+  
   await this.productService.deleteProduct(deleteID);
   // this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
 setTimeout(() => {this.setZeroth()
 }, 250);
-
+alert("Item deleted!");
 // this.testVar=this.productService.getProductList(this.internalService.selectedWareHouseId).subscribe();
 // console.log("product list after delete"+this.testVar)
 // this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
@@ -82,7 +83,7 @@ setZeroth(){
 
 
 updateSelected(updateID:number){
-
+  // alert("Item updated!");
   // this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
 
   this.productService.updateProduct(this.selectedItem);

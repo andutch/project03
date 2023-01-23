@@ -1,8 +1,9 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, SimpleChanges, HostListener } from '@angular/core';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InternalServiceService } from '../services/internal-service.service';
+   
 
 @Component({
   selector: 'app-inventory-view',
@@ -36,9 +37,6 @@ export class InventoryViewComponent implements OnInit{
   //  this.internalService.listSubject.subscribe();//new
 
     this.listProducts();
-
- 
-    
     
               }
 
@@ -49,11 +47,16 @@ export class InventoryViewComponent implements OnInit{
   this.internalService.listSubject.subscribe(data=>{this.products=data;});
   this.listProducts();
 
-  this.interval = setInterval(() => { 
-  this.listProductsInterval(); 
-  }, 500);
+  // this.interval = setInterval(() => { 
+  // this.listProductsInterval(); 
+  // }, 500);
   }
 
+  // document.body.addEventListener('click',  listProducts()); 
+  @HostListener('document:click', ['$event'])
+  documentClick(event: MouseEvent) {
+    this.listProductsInterval() 
+}
   
   listProducts() {
 
@@ -80,7 +83,7 @@ export class InventoryViewComponent implements OnInit{
   listProductsInterval() {
     
 
-    // this.currentWarehouseId=this.internalService.selectedWareHouseId;
+    this.currentWarehouseId=this.internalService.selectedWareHouseId;
   
     // this.products=this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
 
