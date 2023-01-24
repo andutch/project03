@@ -11,9 +11,14 @@ import { InternalServiceService } from './internal-service.service';
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8080/api/products';
-  private baseUrlMax = 'http://localhost:8080/api/products?size=100';//return 100 instead of default 20 for spring 
-  private warehouseUrl = 'http://localhost:8080/api/product-warehouse';
+  // private baseUrl = 'http://localhost:8080/api/products';
+  // private baseUrlMax = 'http://localhost:8080/api/products?size=100';//return 100 instead of default 20 for spring 
+  // private warehouseUrl = 'http://localhost:8080/api/product-warehouse';
+
+
+  private baseUrl = 'http://ec2-3-235-223-246.compute-1.amazonaws.com:5000/api/products';
+  private baseUrlMax = 'http://ec2-3-235-223-246.compute-1.amazonaws.com:5000/api/products?size=100';//return 100 instead of default 20 for spring 
+  private warehouseUrl = 'http://ec2-3-235-223-246.compute-1.amazonaws.com:5000/api/product-warehouse';
 
 
   constructor(private httpClient: HttpClient) { }
@@ -77,7 +82,8 @@ export class ProductService {
         "description":'',
         "imageUrl":'assets/images/products/generic-0000.png',
             "warehouse": {
-                "warehouse": `http://localhost:8080/api/product-warehouse/${warehouseID}`
+                // "warehouse": `http://localhost:8080/api/product-warehouse/${warehouseID}`
+                "warehouse": `http://ec2-3-235-223-246.compute-1.amazonaws.com:5000/api/product-warehouse/${warehouseID}`
             }}).subscribe((data)=>{
           console.log("success update");})
       }
