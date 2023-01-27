@@ -41,7 +41,7 @@
                        placeholder="Name..."
                        ></p>
 
-                       <p>  <input [(ngModel)]="selectedItem.unitPrice"
+                       <input [(ngModel)]="selectedItem.unitPrice"
     
                         type="text"
                         id="Price"
@@ -57,8 +57,12 @@
                         id="qty"
                         name="qty"
                         placeholder="qty..."
+                        #qty="ngModel"
                         >
-                    </p>
+                        <div *ngIf="qty.errors?.['max']" style="color:red">
+                            Maximum qty is 100 units!!!! 
+                          </div>
+                    
 
                         <p>  <input [(ngModel)]="selectedItem.sku"
     
@@ -73,14 +77,14 @@
                             <br>
                 
                 
-                                <button style="height:1.5em;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="updateSelected(selectedItem.id)"><strong>update item</strong></button>
+                                <button id="updateButton" style="height:1.5em;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="updateSelected(selectedItem.id)"><strong>update item</strong></button>
                              
                             <br>
                                 <button style="height:1.5em;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="createProduct()"><strong>create item</strong></button>
                             </div>
     
     
-                       <!-- <div id="taskContent"> -->
+                     
                       <p> 
             
                     <textarea   [(ngModel)]="selectedItem.description" 
@@ -92,7 +96,7 @@
                         </textarea></p> 
                
         
-                    <!-- </div> -->
+              
                     </form>
                 
                 
@@ -106,15 +110,5 @@
 
             
             </div>
-            <!-- <div>
-            <button style="height:30px;width:100px;background-color: grey; border: 1px;" (click)="deleteSelected(selectedItem.id);"><strong>delete item</strong></button>
-            <br>
-
-
-                <button style="height:30px;width:100px;background-color: grey; border: 1px;" (click)="updateSelected(selectedItem.id)"><strong>update item</strong></button>
-             
-            <br>
-                <button style="height:30px;width:100px;background-color: grey; border: 1px;" (click)="createProduct()"><strong>create item</strong></button>
-            </div>
-    -->
+       
 </body>

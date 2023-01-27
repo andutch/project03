@@ -25,8 +25,6 @@ export class InventoryViewComponent implements OnInit{
   constructor(private productService:ProductService,
               private route: ActivatedRoute, private router:Router, private internalService:InternalServiceService){
 
-                //added 21 Jan// not working
-    //  this.internalService.wareHouseSubject.subscribe(value=>{this.currentWarehouse=value;}); //changed from currentWhid
   
     this.currentWarehouseId=this.internalService.selectedWareHouseId;
 
@@ -34,7 +32,7 @@ export class InventoryViewComponent implements OnInit{
   this.products=this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
                 
    this.internalService.listSubject.subscribe(data=>{this.products=data;});//new
-  //  this.internalService.listSubject.subscribe();//new
+
 
     this.listProducts();
     
