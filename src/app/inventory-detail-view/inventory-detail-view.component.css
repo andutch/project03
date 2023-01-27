@@ -60,12 +60,20 @@ img{
 .details>h3{
     color: #ffffff;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1em;
     margin: 10px 0 15px 0;
 }
 .details>p{
     color: #a0a0a0;
     font-size: 15px;
     line-height: 30px;
-    font-weight: 400;
+    font-weight:bolder;
 }
+
+input, textarea {
+    background-color: #d1d1d1;
+     /* font-size: 1em; */
+     min-width: 25em;
+    font-weight:bolder;
+   
+  }

@@ -67,18 +67,19 @@ export class ProductService {
         const createProductUrl=`${this.baseUrl}/`;
 
 
-    await  this.httpClient.get<GetResponse>(this.baseUrlMax).pipe(
-          map(response=> response._embedded.products)
-        ).subscribe(data=>{this.testVar=data;});
+    // await  this.httpClient.get<GetResponse>(this.baseUrlMax).pipe(
+    //       map(response=> response._embedded.products)
+    //     ).subscribe(data=>{this.testVar=data;});
 
-        console.log("test var"+this.testVar);
-        console.log("test var size"+this.testVar.length);
+    //     console.log("test var"+this.testVar);
+    //     console.log("test var size"+this.testVar.length);
         
-        this.httpClient.post(createProductUrl, { 
+       await this.httpClient.post(createProductUrl, { 
         "sku": "blank",
         "name": "blank",
         "active":true,
         "unitPrice": 0.00,
+        "unitsInStock":0,
         "description":'',
         "imageUrl":'assets/images/products/generic-0000.png',
             "warehouse": {

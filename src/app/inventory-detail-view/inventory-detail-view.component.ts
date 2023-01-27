@@ -55,8 +55,8 @@ async deleteSelected(deleteID:number){
   
   await this.productService.deleteProduct(deleteID);
   // this.internalService.fetchProducts(this.internalService.selectedWareHouseId);
-setTimeout(() => {this.setZeroth()
-}, 250);
+// setTimeout(() => {this.setZeroth()
+// }, 250);
 alert("Item deleted!");
 // this.testVar=this.productService.getProductList(this.internalService.selectedWareHouseId).subscribe();
 // console.log("product list after delete"+this.testVar)
@@ -93,6 +93,7 @@ this.productService.getProductList(this.internalService.selectedWareHouseId).sub
   data=>{
     this.products=data; //assigns results to product array
   }
+  
 )
 
 
@@ -102,11 +103,18 @@ for(let product in this.products){
   }else{}
 }
 
+this.setZeroth();
+// this.getSelected();
+
+alert("Item updated!");
+
 }
 
 createProduct(){
   this.productService.createProduct(this.internalService.selectedWareHouseId);
 
+ 
+  alert("Item created!");
 }
 
 }

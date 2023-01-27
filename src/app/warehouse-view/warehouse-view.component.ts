@@ -14,7 +14,7 @@ import { ProductService } from '../services/product.service';
 
 
 
-export class WarehouseViewComponent implements OnInit{
+export class WarehouseViewComponent{
 
 
   productWarehouses: ProductWarehouse[]=[];
@@ -24,11 +24,7 @@ export class WarehouseViewComponent implements OnInit{
 
   };
 
-  ngOnInit(): void {
-    
-    }
 
-  // warehouseList=this.internalService.warehouseList;
 
   listProductWarehouses() {
     this.productService.getProductWarehouses().subscribe(
@@ -38,14 +34,8 @@ export class WarehouseViewComponent implements OnInit{
         this.internalService.wareHouseSubject.next(this.productWarehouses[0]);
       }
     );
-    // this.internalService.wareHouseSubject.next(this.productWarehouses[0]);
-  }
 
-  // populateWarehouseExamples():void{
-  //   for(let warehouse in WAREHOUSES ){
-  //     this.warehouseList.push(WAREHOUSES[warehouse])
-  //   }
-  // }
+  }
 
 
 //   showDetailView(id:string):void{
@@ -77,9 +67,5 @@ setSelectedWarehouse(id:number){
 
 // openLink() {
 //   this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');
-//   // this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:warehouse-detail-view)');
-//   console.log('change page1')
-//   // this.router.navigateByUrl('warehouse/'+this.currentWarehouseId+'(aux1:inventory-detail-view)');
-//   // console.log('change page2')
 // }
 }

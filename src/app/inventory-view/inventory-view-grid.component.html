@@ -18,7 +18,8 @@
              </div>
         <div>
             <h1>{{tempProduct.name}}</h1>
-            <div class="price">{{tempProduct.unitPrice| currency:'USD'}}</div>
+            <div class="price">Price:{{tempProduct.unitPrice| currency:'USD'}}
+                &nbsp; Qty: {{tempProduct.unitsInStock}}</div>
 
             <h2 class="name">Part Number: {{tempProduct.sku}}</h2>
 

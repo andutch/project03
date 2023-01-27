@@ -30,39 +30,53 @@
 
                 <form #modifyTaskForm>
                 
-                  <p>  <input [(ngModel)]="selectedItem.name"
+                  <p>  
+                  <label for="name" style="display: inline-block;">Modify details:</label>
+
+                    <input [(ngModel)]="selectedItem.name"
     
                        type="text"
-                       id="taskTitle"
-                       name="taskTitle"
-                       placeholder="Leave Blank For No Title Edits..."
+                       id="name"
+                       name="name"
+                       placeholder="Name..."
                        ></p>
 
-                       <p>  <input [(ngModel)]="selectedItem.name"
+                       <p>  <input [(ngModel)]="selectedItem.unitPrice"
     
                         type="text"
-                        id="taskTitle"
-                        name="taskTitle"
-                        placeholder="Leave Blank For No Title Edits..."
-                        ></p>
+                        id="Price"
+                        name="Price"
+                        placeholder="Price..."
+                        >
+                    
+                    
+                        <input [(ngModel)]="selectedItem.unitsInStock"
+    
+                        type="number"
+                        max="100"
+                        id="qty"
+                        name="qty"
+                        placeholder="qty..."
+                        >
+                    </p>
 
-                        <p>  <input [(ngModel)]="selectedItem.name"
+                        <p>  <input [(ngModel)]="selectedItem.sku"
     
                             type="text"
-                            id="taskTitle"
-                            name="taskTitle"
-                            placeholder="Leave Blank For No Title Edits..."
+                            id="sku"
+                            name="sku"
+                            placeholder="sku..."
                             ></p>
                           
                             <div>
-                                <button style="height:30px;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="deleteSelected(selectedItem.id);"><strong>delete item</strong></button>
+                                <button style="height: 1.5em;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="deleteSelected(selectedItem.id);"><strong>delete item</strong></button>
                             <br>
                 
                 
-                                <button style="height:30px;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="updateSelected(selectedItem.id)"><strong>update item</strong></button>
+                                <button style="height:1.5em;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="updateSelected(selectedItem.id)"><strong>update item</strong></button>
                              
                             <br>
-                                <button style="height:30px;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="createProduct()"><strong>create item</strong></button>
+                                <button style="height:1.5em;width:100px;background-color: grey; border: 1px; margin:5px;" (click)="createProduct()"><strong>create item</strong></button>
                             </div>
     
     
